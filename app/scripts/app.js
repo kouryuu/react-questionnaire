@@ -1,45 +1,8 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import SmallText from './question-types/small-text-input.js'
+import SmallMultipleOptions from './question-types/small-multiple-options.js'
 
-var React = window.React = require('react'),
-    ReactDOM = require("react-dom"),
-    Timer = require("./ui/Timer"),
-    mountNode = document.getElementById("app");
-
-var TodoList = React.createClass({
-  render: function() {
-    var createItem = function(itemText, itemIdx) {
-      return <li key={'todoList'+itemIdx}>{itemText}</li>;
-    };
-    return <ul>{this.props.items.map(createItem)}</ul>;
-  }
-});
-var TodoApp = React.createClass({
-  getInitialState: function() {
-    return {items: [], text: ''};
-  },
-  onChange: function(e) {
-    this.setState({text: e.target.value});
-  },
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var nextItems = this.state.items.concat([this.state.text]);
-    var nextText = '';
-    this.setState({items: nextItems, text: nextText});
-  },
-  render: function() {
-    return (
-      <div>
-        <h3>TODO</h3>
-        <TodoList items={this.state.items} />
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.onChange} value={this.state.text} />
-          <button>{'Add #' + (this.state.items.length + 1)}</button>
-        </form>
-        <Timer />
-      </div>
-    );
-  }
-});
-
-
-ReactDOM.render(<TodoApp />, mountNode);
-
+let myoptions = [{id:1,description:"Red",selected:false},{id:2,description:"Orange",selected:false}];
+ReactDOM.render(<div>< SmallMultipleOptions question="Choose your favorite colors" options={myoptions}/>
+<SmallText question="How are you?" /></div>,document.getElementById('content'));
