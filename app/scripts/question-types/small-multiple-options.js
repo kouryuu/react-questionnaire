@@ -1,14 +1,9 @@
 import React from 'react'
+import NextButton from '../ui-lib/next-button.js'
 export default class SmallMultipleOptions extends React.Component{
   constructor(){
     super();
 
-  }
-
-
-  _addOption(event){
-    event.preventDefault();
-    console.log(event);
   }
   render(){
     let _generateOptions = (function(options){
@@ -28,8 +23,7 @@ export default class SmallMultipleOptions extends React.Component{
       <div className="well">
         <h1 className="text-center">{this.props.question}</h1>
         {_generateOptions(this.props.options)}
-        <a href="#" className="btn btn-success btn-centered">Next</a>
-
+        <NextButton skippable={this.props.skippable} />
 
       </div>
     );
