@@ -4,7 +4,7 @@ export default class NextButton extends React.Component{
     return(
       <div className="row next-button">
         <div className="col-xs-2 col-xs-offset-5">
-      {(this.props.skippable)?<a href="#" className="btn btn-default">Skip</a>:null}
+      {(this.props.skippable)?<a href="#" onClick={this.props.nextFunc} className="btn btn-default">Skip</a>:null}
       &nbsp;
       <a href="#" className="btn btn-success" onClick={this.props.nextFunc}>Next</a>
       </div>
