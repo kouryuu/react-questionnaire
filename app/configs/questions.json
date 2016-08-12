@@ -1,0 +1,6 @@
+{
+  "required":[1,2],
+  "all":[{"id":1,"type":"small-text-input","question":"What is your job position?"},
+          {}],
+  "dependencies":[]
+}
