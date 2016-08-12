@@ -23,7 +23,7 @@ export default class SmallMultipleOptions extends React.Component{
       <div className="well">
         <h1 className="text-center">{this.props.question}</h1>
         {_generateOptions(this.props.options)}
-        <NextButton skippable={this.props.skippable} />
+        <NextButton skippable={this.props.skippable} nextFunc={this.props.nextFunc}/>
 
       </div>
     );
@@ -46,7 +46,7 @@ class Option extends React.Component{
     }
     _addOption(event){
       event.preventDefault();
-      this.setState({selected:!this.state.selected});
+    //  this.setState({selected:!this.state.selected});
     }
 
 }
