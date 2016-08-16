@@ -8,8 +8,9 @@ export default class SmallRadioOptions extends React.Component{
     }
   }
   _selectOne(event,selected){
+    //event.preventDefault();
     console.log(selected);
-      this.setState({selected:selected});
+      //this.setState({selected:selected});
     };
   render(){
     let _generateOptions = (function(options,selected,selectFunction){

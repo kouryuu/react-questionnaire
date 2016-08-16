@@ -1,17 +1,18 @@
 import React from 'react'
 import NextButton from '../ui-lib/next-button.js'
+import {store} from '../store.js'
 export default class SmallMultipleOptions extends React.Component{
   constructor(){
     super();
-
   }
+
   render(){
-    let _generateOptions = (function(options){
+    let _generateOptions = (function(options,_questionNumber){
       return(
         <ul className="options-ul text-center">
         {options.map(function(option){
             return (
-              <Option selected={option.selected} id={option.id} key={option.id} description={option.description}></Option>
+              <Option questionNumber={_questionNumber} selected={option.selected} id={option.id} key={option.id} description={option.description}></Option>
             );
               }
                     )
@@ -22,7 +23,7 @@ export default class SmallMultipleOptions extends React.Component{
     return(
       <div className="well">
         <h1 className="text-center">{this.props.question}</h1>
-        {_generateOptions(this.props.options)}
+        {_generateOptions(this.props.options,this.props.questionNumber)}
         <NextButton skippable={this.props.skippable} nextFunc={this.props.nextFunc}/>
 
       </div>
@@ -46,7 +47,13 @@ class Option extends React.Component{
     }
     _addOption(event){
       event.preventDefault();
-    //  this.setState({selected:!this.state.selected});
+      if(!this.state.selected){
+      store(this.props.questionNumber,this.props.description,{ElementType:"multiple",type:"add"});
+      }else{
+      store(this.props.questionNumber,this.props.description,{ElementType:"multiple",type:"remove"});
+      }
+      this.setState({selected:!this.state.selected});
+
     }
 
 }

@@ -11,20 +11,20 @@
         "vinyl-buffer": "latest",
         "gulp-autoprefixer": "~1.0.1",
         "gulp-bower": "0.0.6",
-        "gulp-cache": "~0.2.4",  
+        "gulp-cache": "~0.2.4",
         "gulp-less": "latest",
         "bootstrap-less": "latest",
-        "gulp-imagemin": "latest",  
-        "gulp-jest": "~0.2.2", 
+        "gulp-imagemin": "latest",
+        "gulp-jest": "~0.2.2",
         "gulp-jshint": "~1.8.5",
-        "gulp-load-plugins": "~0.7.0", 
+        "gulp-load-plugins": "~0.7.0",
         "gulp-ruby-sass": "~1.0.5",
         "browser-sync": "latest",
         "gulp-size": "~1.1.0",
         "gulp-useref": "~0.4.4",
         "gulp-util": "~3.0.1",
-        "gulp-webserver": "latest", 
-        "jest-cli": "latest", 
+        "gulp-webserver": "latest",
+        "jest-cli": "latest",
         "react": "latest",
         "react-dom": "latest",
         "react-tools": "latest",
@@ -52,7 +52,7 @@
     },
     "browserify": {
         "transform": [
-            "browserify-shim", 
+            "browserify-shim",
             [
                 "babelify", {
                     "ignore": [
