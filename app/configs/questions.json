@@ -1,6 +1,6 @@
 {
   "required":[1,2],
   "all":[{"id":1,"type":"small-text-input","question":"What is your job position?"},
-          {}],
+          {"id":2,"type":"small-radio-options","question":"What is your age group?"}],
   "dependencies":[]
 }
