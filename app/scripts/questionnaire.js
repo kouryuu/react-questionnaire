@@ -36,7 +36,7 @@ export default class Questionnaire extends React.Component{
       case 1:
         return (<SmallMultipleOptions questionNumber={1} question="Choose your favorite color"  options={myoptions2} nextFunc={this._nextFunction.bind(this,false)}/>);
       case 0:
-        return (<SmallText questionNumber={0} question="How are you?" skippable={true} nextFunc={this._nextFunction.bind(this,false)}/>);
+        return (<SmallText questionNumber={0} question="How are you?" skippable={true} nextFunc={this._nextFunction.bind(this,true)}/>);
 
       }
     })()}
