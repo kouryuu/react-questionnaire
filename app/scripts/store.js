@@ -3,8 +3,9 @@ function Store(){
 
   return (function(questionNumber,value,action={}){
 
-    if(questionNumber !== null){
-      if(action.ElementType === "multiple"){
+    if(questionNumber !== null && typeof(questionNumber) !== "undefined"){
+      switch(action.ElementType){
+      case "multiple":
         if(action.type === "add"){
           if(stored[questionNumber] === null || typeof(stored[questionNumber]) === 'undefined'){
             stored[questionNumber] = [value];
@@ -17,11 +18,15 @@ function Store(){
         if(action.type === "remove" && stored[questionNumber] !== null && typeof(stored[questionNumber]) !== 'undefined'){
           stored[questionNumber] = stored[questionNumber].filter(function(myvalue){return myvalue !== value;});
         }
-        }
-      if(action.ElementType === "text"){
+        break;
+      case "text":
         stored[questionNumber] = value;
-        }
+        break;
+      case "unique":
+        stored[questionNumber] = value;
+        break;
        }
+     }
       return stored;
 
   });
