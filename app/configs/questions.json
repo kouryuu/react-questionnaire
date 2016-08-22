@@ -1,6 +1,14 @@
 {
-  "required":[1,2],
-  "all":[{"id":1,"type":"small-text-input","question":"What is your job position?"},
-          {"id":2,"type":"small-radio-options","question":"What is your age group?"}],
-  "dependencies":[]
+  "required":[],
+  "all":[{"id":1,"type":"small-text-input","question":"What is your name?"},
+          {"id":2,"type":"small-multiple-options","question":"What is your favorite food?",
+            "options":[{"id":1,"description":"Pizza","selected":false},
+              {"id":2,"description":"Hamburger","selected":false}]}],
+  "configs":{"welcome":"Hi!😀 You are about to answer a quick questionnaire.",
+             "tip":"Please answer as truthfully as possible, you may not go back to fix an answer but you may skip some.",
+             "closingmessage":"Thank you so much!",
+             "closingtip":"You have completed the questionnaire, we will use your responses for something awesome.",
+             "tooltip":"You must answer to continue."
+           },
+  "posturl": "http://www.google.com"
 }
