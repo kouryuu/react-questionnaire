@@ -1,5 +1,7 @@
 import React from 'react'
 import {store} from '../store.js'
+/* This React Component is used to render a small array of options that could have one or more answers
+*/
 export default class SmallMultipleOptions extends React.Component{
   constructor(){
     super();

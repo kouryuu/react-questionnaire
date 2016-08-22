@@ -1,5 +1,7 @@
 import React from 'react'
 import {store} from '../store.js'
+/* This React Component is used to render a small array of options, but it only has one answer.
+*/
 export default class SmallUniqueOptions extends React.Component{
   constructor(){
     super();

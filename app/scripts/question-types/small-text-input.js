@@ -1,5 +1,7 @@
 import React from 'react'
 import {store} from '../store.js'
+/* This React Component is used to render a small text input to answer simple questions.
+*/
 export default class SmallText extends React.Component{
   _updateAnswers(event){
     store(this.props.questionNumber,event.target.value,{ElementType:"text"});
