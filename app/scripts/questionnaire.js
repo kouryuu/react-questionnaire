@@ -2,6 +2,7 @@ import React from 'react'
 import SmallText from './question-types/small-text-input.js'
 import SmallMultipleOptions from './question-types/small-multiple-options.js'
 import SmallUniqueOptions from './question-types/small-unique-options.js'
+import NextButton from './ui-lib/next-button.js'
 import {store} from './store.js'
 import Tooltip from './ui-lib/tooltip.js'
 export default class Questionnaire extends React.Component{
@@ -32,11 +33,11 @@ export default class Questionnaire extends React.Component{
       {(()=>{ switch(this.state.currentQuestion)
        {
       case 2:
-      return (<SmallUniqueOptions  questionNumber={2}  question="Choose your favorite food" options={myoptions} nextFunc={this._nextFunction.bind(this,false)}/>);
+      return (<div className="well"><SmallUniqueOptions  questionNumber={2}  question="Choose your favorite food" options={myoptions} /><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,false)}/></div>);
       case 1:
-        return (<SmallMultipleOptions questionNumber={1} question="Choose your favorite color"  options={myoptions2} nextFunc={this._nextFunction.bind(this,false)}/>);
+        return (<div className="well"><SmallMultipleOptions questionNumber={1} question="Choose your favorite color"  options={myoptions2} /><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,false)}/></div>);
       case 0:
-        return (<SmallText questionNumber={0} question="How are you?" skippable={true} nextFunc={this._nextFunction.bind(this,true)}/>);
+        return (<div className="well"><SmallText questionNumber={0} question="How are you?" /><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,false)}/></div>);
 
       }
     })()}

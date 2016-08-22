@@ -1,5 +1,4 @@
 import React from 'react'
-import NextButton from '../ui-lib/next-button.js'
 import {store} from '../store.js'
 export default class SmallUniqueOptions extends React.Component{
   constructor(){
@@ -31,10 +30,9 @@ export default class SmallUniqueOptions extends React.Component{
       );
     });
     return(
-      <div className="well">
+      <div>
         <h1 className="text-center">{this.props.question}</h1>
         {_generateOptions(this.props.options,this,this._selectOne)}
-        <NextButton skippable={this.props.skippable} nextFunc={this.props.nextFunc}/>
       </div>
     );
   }
