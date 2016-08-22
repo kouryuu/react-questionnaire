@@ -22,8 +22,12 @@ The `question-type`property should be one of the following:
 
 - **small-text-input**: Used to display a small text input that could be used to answer questions that need less than 100 characters.
 
-Both the **small-multiple-options** and **small-unique-options** need to define the set of options in an array of objects that have:
+Both the **small-multiple-options** and **small-unique-options** need to define the set of `options` in an array of objects that have:
 
 - A unique **id**
 - A **description** of the answer
 - A *true* or *false* value assigned to **selected** used to define if such option is selected as the default value.
+
+The **post-url** is used to send the results, there is a sample server provided that uses NodeJS and SQLite3 to save the results.
+
+To start the development server use `gulp watch`, it will open a browser window with the Questionnaire.
