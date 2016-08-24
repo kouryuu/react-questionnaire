@@ -1,11 +1,11 @@
+import {QUESTIONNAIRE_NAME} from '../configs/configs.js'
 /* This function returns another function bound to the stored array that both stores values depending
 * on the ElementType or returns the stored array of values.
 */
 function Store(){
-  let stored = [];
+  let stored = [QUESTIONNAIRE_NAME];
 
   return (function(questionNumber,value,action={}){
-
     if(questionNumber !== null && typeof(questionNumber) !== "undefined"){
       switch(action.ElementType){
       case "multiple":
