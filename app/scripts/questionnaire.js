@@ -14,7 +14,6 @@ export default class Questionnaire extends React.Component{
   }
   _nextFunction(skip){
     //event.preventDefault();
-    console.log(store()[this.state.currentQuestion]);
     if(skip ||
        (store()[this.state.currentQuestion] !== undefined && store()[this.state.currentQuestion] !== "")){
     this.setState({tipAlert:false});
@@ -32,7 +31,7 @@ export default class Questionnaire extends React.Component{
           return (<div className="well"><h2 className="text-center">{this.props.questions.configs.welcome}</h2><p className="text-center">{this.props.questions.configs.tip}</p><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,true)}/></div>);
         if(this.state.currentQuestion > 0 && this.state.currentQuestion <= questions.length)
           return (questions[this.state.currentQuestion-1]);
-        return(<ClosingMessage message={this.props.questions.configs.closingmessage} tip={this.props.questions.closingtip} />)
+        return(<ClosingMessage posturl={this.props.questions.posturl} message={this.props.questions.configs.closingmessage} tip={this.props.questions.configs.closingtip} waitmessage={this.props.questions.configs.waitmessage} />)
     })()}
     {(this.state.tipAlert)?<Tooltip message={this.props.questions.configs.tooltip}></Tooltip>:null}
 

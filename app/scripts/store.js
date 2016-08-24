@@ -1,3 +1,6 @@
+/* This function returns another function bound to the stored array that both stores values depending
+* on the ElementType or returns the stored array of values.
+*/
 function Store(){
   let stored = [];
 
@@ -28,7 +31,6 @@ function Store(){
        }
      }
       return stored;
-
   });
 }
 const store = Store();
