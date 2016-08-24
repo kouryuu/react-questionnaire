@@ -10,7 +10,9 @@ export default class SmallMultipleOptions extends React.Component{
   render(){
     let _generateOptions = (function(options,_questionNumber){
       return(
-        <ul className="options-ul text-center">
+        <div className="row">
+          <div className="col-md-4"></div>
+        <ul  className="col-md-4 options-ul">
         {options.map(function(option){
             return (
               <Option questionNumber={_questionNumber} selected={option.selected} id={option.id} key={option.id} description={option.description}></Option>
@@ -19,6 +21,7 @@ export default class SmallMultipleOptions extends React.Component{
                     )
         }
         </ul>
+      </div>
       );
     });
     return(
