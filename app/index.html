@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
+      <img src="images/ripple.gif" id="loader" style="position:absolute;top:50%;left:45%;"/>
         <div class="container">
             <div id="content" >
             </div>
@@ -17,11 +18,17 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
+
         <script src="bower_components/jquery/dist/jquery.js"></script>
 
 
         <!-- endbower -->
         <!-- endbuild -->
+        <script>
+        $(document).ready(function(){
+          $('#loader').hide();
+        });
+        </script>
         <script src="scripts/app.js"></script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
