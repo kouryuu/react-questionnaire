@@ -8,7 +8,8 @@
              "tip":"Please answer as truthfully as possible, you may not go back to fix an answer but you may skip some.",
              "closingmessage":"Thank you so much!",
              "closingtip":"You have completed the questionnaire, we will use your responses for something awesome.",
-             "tooltip":"You must answer to continue."
+             "tooltip":"You must answer to continue.",
+             "waitmessage":"Hold on, we are trying to send your responses."
            },
   "posturl": "http://www.google.com"
 }
