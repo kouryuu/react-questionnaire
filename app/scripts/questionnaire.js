@@ -28,7 +28,7 @@ export default class Questionnaire extends React.Component{
     <div>
       {(()=>{
         if(this.state.currentQuestion === 0)
-          return (<div className="well"><h2 className="text-center">{this.props.questions.configs.welcome}</h2><p className="text-center">{this.props.questions.configs.tip}</p><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,true)}/></div>);
+          return (<div className="well question"><h2 className="text-center">{this.props.questions.configs.welcome}</h2><p className="text-center">{this.props.questions.configs.tip}</p><NextButton skippable={false} nextFunc={this._nextFunction.bind(this,true)}/></div>);
         if(this.state.currentQuestion > 0 && this.state.currentQuestion <= questions.length)
           return (questions[this.state.currentQuestion-1]);
         return(<ClosingMessage posturl={this.props.questions.posturl} message={this.props.questions.configs.closingmessage} tip={this.props.questions.configs.closingtip} waitmessage={this.props.questions.configs.waitmessage} />)
