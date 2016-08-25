@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Questionnaire from './questionnaire.js'
-import {ERRORMSG} from '../configs/configs.js'
+import {ERRORMSG,QUESTIONNAIRE_NAME} from '../configs/configs.js'
+import Navbar from './ui-lib/navbar.js'
 
-
+ReactDOM.render(<Navbar title={QUESTIONNAIRE_NAME} />,document.getElementById('nav'));
 $.getJSON('/configs/questions.json')
 .done(function(data){
 ReactDOM.render(<div>
