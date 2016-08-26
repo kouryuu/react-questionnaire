@@ -31,6 +31,8 @@ export default class SmallUniqueOptions extends React.Component{
         </ul>
       );
     });
+    $('.options-ul li').removeClass('selected');
+    $('.options-ul li').addClass('unselected');
     return(
       <div>
         <h1 className="text-center">{this.props.question}</h1>
