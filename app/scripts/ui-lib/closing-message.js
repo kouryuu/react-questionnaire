@@ -12,7 +12,7 @@ export default class ClosingMessage extends React.Component{
   _saveResponses(){
     let responses = JSON.stringify(store());
     let me = this;
-    $.post(this.props.posturl,responses)
+    $.post(this.props.posturl,{"responses":responses})
     .done(function(data){
       if(data === "OK"){
         me.setState({saved:true});
