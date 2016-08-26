@@ -1,6 +1,24 @@
 {
     "name": "react-questionnaire",
     "version": "1.0.0",
+    "description": "Simple react components for building a questionnaire or survey.",
+    "license" : "MIT",
+    "author": {
+  "name": "Rodrigo Reyes",
+  "email": "rodrigo@plethora.com.mx",
+  "url": "https://github.com/kouryuu"
+      },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/kouryuu/react-questionnaire.git"
+    },
+
+      "bugs": "https://github.com/kouryuu/react-questionnaire/issues",
+      "keywords": [
+      "survey",
+      "react",
+      "questionnaire",
+      ],
     "dependencies": {},
     "devDependencies": {
         "browserify": "latest",
@@ -67,6 +85,5 @@
     },
     "browserify-shim": {
         "jquery": "$"
-    },
-  "license" : "MIT"
+    }
 }
