@@ -1,6 +1,6 @@
 {
-    "name": "questionnaire",
-    "version": "0.0.0",
+    "name": "react-questionnaire",
+    "version": "1.0.0",
     "dependencies": {},
     "devDependencies": {
         "browserify": "latest",
@@ -67,5 +67,6 @@
     },
     "browserify-shim": {
         "jquery": "$"
-    }
+    },
+  "license" : "MIT"
 }
