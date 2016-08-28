@@ -1,6 +1,6 @@
 
-## ![logo](app/images/favicon-32x32.png)uestionnaire using React Components 
-<hr />
+## ![logo](app/images/favicon-32x32.png)uestionnaire using React Components
+
 This repo is a ReactJS based questionnaire it is intended to be modular and simple.
 It uses simple Twitter Bootstrap-based styling and simple CSS animations.
 
