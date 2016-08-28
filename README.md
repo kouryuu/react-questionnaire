@@ -1,8 +1,29 @@
 
-### Questionnaire using React Components
+## Questionnaire using React Components
 
 This repo is a ReactJS based questionnaire it is intended to be modular and simple.
 It uses simple Twitter Bootstrap-based styling and simple CSS animations.
+
+## Embedding
+
+If you want to embed on your website download the compiled file and add the following code to your website.
+<center>
+[![Download](/download_btn.png)]()&nbsp;&nbsp;&nbsp;
+[![Try a demo!](/demo_btn.png)]()
+</center>
+
+Then simply import the style and script files as shown (with the correct paths):
+```html
+<script src="scripts/react-questionnaire.js"></script>
+<link rel="stylesheet" href="styles/main.css">
+```
+You must define an element on the DOM with **id** set to *questions*
+
+```html
+<div id="questions">
+</div>
+```
+
 
 #### Getting started
 
@@ -10,7 +31,7 @@ Make sure you have all the node dependencies using `npm install` on the root dir
 
 To make your own Questionnaire simply modify the `questions.json` provided.
 
-The `required` property is used to define an array of required questions that cannot be skipped.
+The `skippable` property is used to define an array of questions that can skipped.
 
 Questions will be displayed based on the question number provided as an **id**.
 
@@ -28,6 +49,25 @@ Both the **small-multiple-options** and **small-unique-options** need to define 
 - A **description** of the answer
 - A *true* or *false* value assigned to **selected** used to define if such option is selected as the default value.
 
-The **post-url** is used to send the results, there is a sample server provided that uses NodeJS and SQLite3 to save the results.
+The **posturl** is used to send the results, there is a sample server provided that uses NodeJS and SQLite3 to save the results.
 
 To start the development server use `gulp watch`, it will open a browser window with the Questionnaire.
+
+#### How to hack
+
+If you want to personalize or create your own question types then this guide is for you.
+
+First you need to understand the basic structure  of the project.
+
+- `app/scripts/` is where all the js live, everything is managed and compiled by babel and gulp.
+- `app/styles/` is where all the styles (css or less) go, there is a bootstrap npm module used to give *bootstrapy* styling; but `main.less` overwrites some to give it a cleaner look.
+- `app/images/` is self-explanatory.
+
+**Inside** `app/scripts/`
+
+`app/scripts/question-types` here are all the React Components used to render the questions.
+
+
+#### License
+
+MIT
