@@ -1,6 +1,6 @@
 
-## Questionnaire using React Components
-
+## ![logo](app/images/favicon-32x32.png)uestionnaire using React Components 
+<hr />
 This repo is a ReactJS based questionnaire it is intended to be modular and simple.
 It uses simple Twitter Bootstrap-based styling and simple CSS animations.
 
@@ -8,8 +8,8 @@ It uses simple Twitter Bootstrap-based styling and simple CSS animations.
 
 If you want to embed on your website download the compiled file and add the following code to your website.
 <center>
-[![Download](/download_btn.png)]()&nbsp;&nbsp;&nbsp;
-[![Try a demo!](/demo_btn.png)]()
+[![Download](/download_btn.png)](http://experiments.plethora.com.mx/react-questionnaire.zip)&nbsp;&nbsp;&nbsp;
+[![Try a demo!](/demo_btn.png)](http://experiments.plethora.com.mx/demo-react-questionnaire/#)
 </center>
 
 Then simply import the style and script files as shown (with the correct paths):
