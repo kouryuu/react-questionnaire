@@ -16,17 +16,17 @@ var source = require('vinyl-source-stream'),
     sourceFile = './app/scripts/app.js',
 
     destFolder = './dist/scripts',
-    destFileName = 'app.js';
+    destFileName = 'react-questionnaire.js';
 
   var less = require('gulp-less');
-  
+
 
   var babelify = require('babelify');
   var exorcist = require('exorcist');
   var buffer = require('vinyl-buffer');
   var transform = require('vinyl-transform');
   var mapFileName = '/app/scripts/app.js.map';
-  
+
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -121,12 +121,12 @@ gulp.task('images', function() {
 
 // Fonts
 gulp.task('fonts', function() {
-    
+
     return gulp.src(require('main-bower-files')({
             filter: '**/*.{eot,svg,ttf,woff,woff2}'
         }).concat('app/fonts/**/*'))
         .pipe(gulp.dest('dist/fonts'));
-    
+
 });
 
 // Clean
@@ -136,7 +136,7 @@ gulp.task('clean', function(cb) {
 });
 
 // Bundle
-gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
+gulp.task('bundle', ['styles', 'scripts'], function() {
     return gulp.src('./app/*.html')
         .pipe($.useref.assets())
         .pipe($.useref.restore())
@@ -144,7 +144,7 @@ gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('buildBundle', ['styles', 'buildScripts', 'moveLibraries', 'bower'], function() {
+gulp.task('buildBundle', ['styles', 'buildScripts'], function() {
     return gulp.src('./app/*.html')
         .pipe($.useref.assets())
         .pipe($.useref.restore())
@@ -153,29 +153,20 @@ gulp.task('buildBundle', ['styles', 'buildScripts', 'moveLibraries', 'bower'], f
 });
 
 // Move JS Files and Libraries
-gulp.task('moveLibraries',['clean'], function(){
-  // the base option sets the relative root for the set of files,
-  // preserving the folder structure
-  gulp.src(['./app/scripts/**/*.js' ,'./app/scripts/**/*.js.map'
-  ], { base: './app/scripts/' })
-  .pipe(gulp.dest('dist/scripts'));
-});
+// gulp.task('moveLibraries',['clean'], function(){
+//   // the base option sets the relative root for the set of files,
+//   // preserving the folder structure
+//   gulp.src(['./app/scripts/**/*.js' ,'./app/scripts/**/*.js.map'
+//   ], { base: './app/scripts/' })
+//   .pipe(gulp.dest('dist/scripts'));
+// });
 
 
-// Bower helper
-gulp.task('bower', function() {
-    gulp.src('app/bower_components/**/*.js', {
-            base: 'app/bower_components'
-        })
-        .pipe(gulp.dest('dist/bower_components/'));
 
-});
 
 gulp.task('json', function() {
-    gulp.src('app/scripts/json/**/*.json', {
-            base: 'app/scripts'
-        })
-        .pipe(gulp.dest('dist/scripts/'));
+    gulp.src('app/configs/questions.json')
+        .pipe(gulp.dest('dist/configs/'));
 });
 
 // Robots.txt and favicon.ico
@@ -186,7 +177,7 @@ gulp.task('extras', function() {
 });
 
 // Watch
-gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
+gulp.task('watch', ['html', 'fonts', 'bundle','styles'], function() {
 
     browserSync({
         notify: false,
@@ -197,27 +188,21 @@ gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
         // https: true,
         server: ['dist', 'app']
     });
-
     // Watch .json files
     gulp.watch('app/scripts/**/*.json', ['json']);
-
     // Watch .html files
     gulp.watch('app/*.html', ['html']);
-
     gulp.watch(['app/styles/**/*.less', 'app/styles/**/*.css'], ['styles', 'scripts', reload]);
-
-    
-
     // Watch image files
-    gulp.watch('app/images/**/*', reload);
+    gulp.watch('app/images/**/*',['images'], reload);
 });
 
 // Build
 gulp.task('build', ['html', 'buildBundle', 'images', 'fonts', 'extras'], function() {
-    gulp.src('dist/scripts/app.js')
-        .pipe($.uglify())
-        .pipe($.stripDebug())
-        .pipe(gulp.dest('dist/scripts'));
+    // gulp.src('dist/scripts/app.js')
+        // .pipe($.uglify())
+        // .pipe($.stripDebug())
+        // .pipe(gulp.dest('dist/scripts'));
 });
 
 // Default task
