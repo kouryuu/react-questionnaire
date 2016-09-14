@@ -2,7 +2,7 @@ import React from 'react'
 import {store} from '../store.js'
 /* This React Component is used to render a small array of images that could have one or more answers
 */
-export default class SmallMultipleImages extends React.Component{
+export default class SmallMultipleImageOptions extends React.Component{
   constructor(){
     super();
   }
