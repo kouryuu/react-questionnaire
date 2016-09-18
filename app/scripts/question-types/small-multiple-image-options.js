@@ -10,17 +10,14 @@ export default class SmallMultipleImageOptions extends React.Component{
   render(){
     let _generateOptions = (function(options,_questionNumber){
       return(
-        <div className="row">
-          <div className="col-md-4"></div>
-        <ul  className="col-md-4 options-ul">
+        <div className="images-container">
         {options.map(function(option){
             return (
-              <ImageOption questionNumber={_questionNumber} selected={option.selected} id={option.id} key={option.id} description={option.src}></ImageOption>
+              <ImageOption questionNumber={_questionNumber} selected={option.selected} id={option.id} key={option.id} src={option.src}></ImageOption>
             );
               }
                     )
         }
-        </ul>
       </div>
       );
     });
@@ -29,7 +26,7 @@ export default class SmallMultipleImageOptions extends React.Component{
     return(
       <div>
         <h1 className="text-center">{this.props.question}</h1>
-        {_generateOptions(this.props.options,this.props.questionNumber)}
+          {_generateOptions(this.props.options,this.props.questionNumber)}
       </div>
     );
   }
@@ -45,7 +42,7 @@ class ImageOption extends React.Component{
     return(
       <div className={(this.state.selected)?"selected":"unselected"} key={this.props.id}>
         <a href="#" className="select-link" onClick={this._addOption.bind(this)}>
-          <img src={this.props.src} />
+          <img src={this.props.src} className="image-option"/>
         </a>
       </div>);
     }
