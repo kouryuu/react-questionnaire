@@ -3,6 +3,7 @@ import SmallText from './question-types/small-text-input.js'
 import NextButton from './ui-lib/next-button.js'
 import SmallMultipleOptions from './question-types/small-multiple-options.js'
 import SmallUniqueOptions from './question-types/small-unique-options.js'
+import SmallMultipleImageOptions from './question-types/small-multiple-image-options.js'
 /* This function returns an array of QuestionType components defined in the questions_json.
 */
 export default function generate_questions(questions_json,_nextFunction,parent){
@@ -28,6 +29,8 @@ questions.forEach(function(question,index){
   case "small-unique-options":
       jsx_objects_array.push(<div className="well question"><SmallUniqueOptions questionNumber={question.id} question={question.question} options={question.options}/><NextButton skippable={is_required(question.id)} nextFunc={_nextFunction.bind(parent,is_required(question.id))}/></div>);
     break;
+  case "small-multiple-image-options":
+      jsx_objects_array.push(<div className="well question"><SmallMultipleImageOptions questionNumber={question.id} question={question.question} options={question.options}/><NextButton skippable={is_required(question.id)} nextFunc={_nextFunction.bind(parent,is_required(question.id))}/></div>);
   }
 });
 return jsx_objects_array;
