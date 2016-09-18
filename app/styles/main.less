@@ -174,3 +174,22 @@ border-radius: 25px;
   text-align: center;
   font-size: 10px;
 }
+.images-container{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.box-shadow (@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
+.image-option{
+  margin: 12px;
+  border: 10px solid white;
+
+}
+.image-option:hover{
+  .box-shadow(0px 0px 15px 5px grey)
+}
