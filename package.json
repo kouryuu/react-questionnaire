@@ -44,7 +44,6 @@
     "jest-cli": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-tools": "latest",
     "reactify": "latest",
     "watchify": "~2.1",
     "browserify-shim": "^3.8.0",
