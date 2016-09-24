@@ -216,7 +216,7 @@ gulp.task('results-watch',['results-build'],function(){
       server: ['results'],
       open: false
   });
-  gulp.watch('results/scripts/ui-ib/*.js', ['results-build']);
+  gulp.watch('results/scripts/ui-lib/*.js', ['results-build']);
   gulp.watch('results/scripts/app.js', ['results-build']);
   gulp.watch('results/styles/**/*.less', ['results-build']);
 });

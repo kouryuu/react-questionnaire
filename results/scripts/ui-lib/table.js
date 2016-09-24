@@ -2,24 +2,47 @@ import React from 'react'
 import QuestionColumn from './question-column.js'
 import $ from 'jquery'
 export default class Table extends React.Component{
-
-  _getQuestions(){
-    $.getJSON('configs/sampleResponses.json').done(function(data){
-    console.log(data);
-  }).error(function(data){
-  console.log(data);
-});
-
+  constructor(){
+    super();
+    this.state = {
+      questions: []
+    };
   }
+  _getQuestions(callback){
+    $.getJSON('/configs/sampleQuestions.json')
+    .done(callback)
+    .error(function(xhr, status, error) {
+      console.log(error);
+    });
+  }
+  _getAnswers(){
+    let process = (function(data){
+      console.log(data.responses)
+    });
+    $.getJSON('/configs/sampleResponses.json')
+    .done(process)
+    .error(function(xhr, status, error) {
+      console.log(error);
+    });
+  }
+
   render(){
-    this._getQuestions();
+    this._getQuestions((data)=>{
+      console.log(data.all.length);
+      let _questions = [];
+      data.all.forEach(function(question){
+        _questions.push(question.id+":"+question.question);
+      });
+      this.setState({questions:_questions});
+    });
+    let titles = this.state.questions;
     return(
       <table className="table">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Age</th>
+          {titles.map(function(title){
+              return (<th>{title}</th>);
+            })}
         </tr>
         </thead>
         <tbody>
