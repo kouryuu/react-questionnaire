@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import QuestionColumn from './ui-lib/question-column.js';
+import Table from './ui-lib/table.js';
 
-ReactDOM.render(<QuestionColumn test="TEST" />,document.getElementById('results'));
+ReactDOM.render(<Table test="TEST" />,document.getElementById('results'));
