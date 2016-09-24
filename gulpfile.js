@@ -207,3 +207,31 @@ gulp.task('build', ['html', 'buildBundle', 'images', 'fonts', 'extras'], functio
 
 // Default task
 gulp.task('default', ['clean', 'build'  , 'jest'  ]);
+
+
+gulp.task('results-watch',['results-build'],function(){
+  browserSync({
+      notify: false,
+      logPrefix: 'BS',
+      server: ['results']
+  });
+  gulp.watch('results/scripts/ui-ib/*.js', ['results-build']);
+  gulp.watch('results/scripts/app.js', ['results-build']);
+  gulp.watch('results/styles/**/*.less', ['results-build']);
+});
+gulp.task('results-build',function(){
+  gulp.src('./results/styles/*.less')
+              .pipe(less({
+              paths: [
+              '.',
+              './node_modules/bootstrap-less'
+              ]
+              }))
+  .pipe(gulp.dest('results/styles'));
+  browserify('./results/scripts/app.js')
+  .bundle()
+  .on('error', $.util.log.bind($.util, 'Browserify Error'))
+  .pipe(source('bundle.js'))
+  .pipe(gulp.dest('./results/scripts/'));
+
+});
