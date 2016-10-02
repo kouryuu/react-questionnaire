@@ -1,11 +1,12 @@
 import React from 'react'
-import QuestionColumn from './question-column.js'
+import Answers from './answers.js'
 import $ from 'jquery'
 export default class Table extends React.Component{
   constructor(){
     super();
     this.state = {
-      questions: []
+      questions: [],
+      responses: []
     };
   }
   _getQuestions(callback){
@@ -15,47 +16,45 @@ export default class Table extends React.Component{
       console.log(error);
     });
   }
-  _getAnswers(){
-    let process = (function(data){
-      console.log(data.responses)
-    });
+  _getAnswers(callback){
     $.getJSON('/configs/sampleResponses.json')
-    .done(process)
+    .done(callback)
     .error(function(xhr, status, error) {
       console.log(error);
     });
   }
-
-  render(){
-    this._getQuestions((data)=>{
-      console.log(data.all.length);
-      let _questions = [];
-      data.all.forEach(function(question){
-        _questions.push(question.id+":"+question.question);
-      });
-      this.setState({questions:_questions});
+  componentDidMount(){
+  this._getQuestions((data)=>{
+    //console.log(data.all.length);
+    let _questions = [];
+    data.all.forEach(function(question){
+      _questions.push(question.id+": "+question.question);
     });
+    this.setState({questions:_questions});
+  });
+  this._getAnswers((answers)=>{
+    console.log(answers.responses);
+    this.setState({responses:answers.responses});
+  })
+  }
+  render(){
+
     let titles = this.state.questions;
+    let answers = this.state.responses;
+    let header_key = 0;
     return(
-      <table className="table">
+      <table className="table table-condensed table-striped">
       <thead>
         <tr>
           {titles.map(function(title){
-              return (<th>{title}</th>);
+              return (<th key={header_key++}>{title}</th>);
             })}
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-        </tr>
+           {answers.map(function(answer){
+             return (<Answers answers={answer} />);
+           })}
         </tbody>
       </table>
     );
