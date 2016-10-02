@@ -25,7 +25,6 @@ export default class Table extends React.Component{
   }
   componentDidMount(){
   this._getQuestions((data)=>{
-    //console.log(data.all.length);
     let _questions = [];
     data.all.forEach(function(question){
       _questions.push(question.id+": "+question.question);
@@ -33,7 +32,6 @@ export default class Table extends React.Component{
     this.setState({questions:_questions});
   });
   this._getAnswers((answers)=>{
-    console.log(answers.responses);
     this.setState({responses:answers.responses});
   })
   }
