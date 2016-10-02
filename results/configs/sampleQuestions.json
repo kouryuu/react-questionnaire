@@ -1,0 +1,21 @@
+{
+  "skippable":[1],
+  "all":[{"id":1,"type":"small-text-input","question":"What is your name?"},
+          {"id":2,"type":"small-multiple-options","question":"What is your favorite food?",
+            "options":[{"id":1,"description":"Pizza","selected":false},
+              {"id":2,"description":"Hamburger","selected":false}]},
+              {"id":3,"type":"small-multiple-options","question":"Which sports do you like?",
+                "options":[{"id":1,"description":"Football","selected":false},
+                  {"id":2,"description":"Baseball","selected":false}]},
+                  {"id":4,"type":"small-unique-options","question":"Sex:",
+                    "options":[{"id":1,"description":"Male","selected":false},
+                      {"id":2,"description":"Female","selected":false}]}],
+  "configs":{"welcome":"Hi!😀 You are about to answer a quick questionnaire.",
+             "tip":"Please answer as truthfully as possible, you may not go back to fix an answer but you may skip some.",
+             "closingmessage":"Thank you so much!",
+             "closingtip":"You have completed the questionnaire, we will use your responses for something awesome.",
+             "tooltip":"You must answer to continue.",
+             "waitmessage":"Hold on, we are trying to send your responses."
+           },
+  "posturl": "http://your-url-goes-here"
+}
