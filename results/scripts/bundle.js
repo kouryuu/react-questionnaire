@@ -30018,30 +30018,57 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var QuestionColumn = (function (_React$Component) {
-  _inherits(QuestionColumn, _React$Component);
+var Answers = (function (_React$Component) {
+  _inherits(Answers, _React$Component);
 
-  function QuestionColumn() {
-    _classCallCheck(this, QuestionColumn);
+  function Answers() {
+    _classCallCheck(this, Answers);
 
-    _get(Object.getPrototypeOf(QuestionColumn.prototype), 'constructor', this).apply(this, arguments);
+    _get(Object.getPrototypeOf(Answers.prototype), 'constructor', this).apply(this, arguments);
   }
 
-  _createClass(QuestionColumn, [{
+  _createClass(Answers, [{
     key: 'render',
     value: function render() {
+      var answer_key = 0;
       return _react2['default'].createElement(
-        'div',
+        'tr',
         null,
-        this.props.test
+        this.props.answers.map(function (answer) {
+          return _react2['default'].createElement(Answer, { key: answer_key++, isArray: answer instanceof Array, answer: answer });
+        })
       );
     }
   }]);
 
-  return QuestionColumn;
+  return Answers;
 })(_react2['default'].Component);
 
-exports['default'] = QuestionColumn;
+exports['default'] = Answers;
+
+var Answer = (function (_React$Component2) {
+  _inherits(Answer, _React$Component2);
+
+  function Answer() {
+    _classCallCheck(this, Answer);
+
+    _get(Object.getPrototypeOf(Answer.prototype), 'constructor', this).apply(this, arguments);
+  }
+
+  _createClass(Answer, [{
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'td',
+        null,
+        this.props.isArray ? this.props.answer.join(',') : this.props.answer
+      );
+    }
+  }]);
+
+  return Answer;
+})(_react2['default'].Component);
+
 module.exports = exports['default'];
 
 },{"react":172}],175:[function(require,module,exports){
@@ -30065,9 +30092,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _questionColumnJs = require('./question-column.js');
+var _answersJs = require('./answers.js');
 
-var _questionColumnJs2 = _interopRequireDefault(_questionColumnJs);
+var _answersJs2 = _interopRequireDefault(_answersJs);
 
 var _jquery = require('jquery');
 
@@ -30081,7 +30108,8 @@ var Table = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(Table.prototype), 'constructor', this).call(this);
     this.state = {
-      questions: []
+      questions: [],
+      responses: []
     };
   }
 
@@ -30094,31 +30122,39 @@ var Table = (function (_React$Component) {
     }
   }, {
     key: '_getAnswers',
-    value: function _getAnswers() {
-      var process = function process(data) {
-        console.log(data.responses);
-      };
-      _jquery2['default'].getJSON('/configs/sampleResponses.json').done(process).error(function (xhr, status, error) {
+    value: function _getAnswers(callback) {
+      _jquery2['default'].getJSON('/configs/sampleResponses.json').done(callback).error(function (xhr, status, error) {
         console.log(error);
+      });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this = this;
+
+      this._getQuestions(function (data) {
+        //console.log(data.all.length);
+        var _questions = [];
+        data.all.forEach(function (question) {
+          _questions.push(question.id + ": " + question.question);
+        });
+        _this.setState({ questions: _questions });
+      });
+      this._getAnswers(function (answers) {
+        console.log(answers.responses);
+        _this.setState({ responses: answers.responses });
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this = this;
 
-      this._getQuestions(function (data) {
-        console.log(data.all.length);
-        var _questions = [];
-        data.all.forEach(function (question) {
-          _questions.push(question.id + ":" + question.question);
-        });
-        _this.setState({ questions: _questions });
-      });
       var titles = this.state.questions;
+      var answers = this.state.responses;
+      var header_key = 0;
       return _react2['default'].createElement(
         'table',
-        { className: 'table' },
+        { className: 'table table-condensed table-striped' },
         _react2['default'].createElement(
           'thead',
           null,
@@ -30128,7 +30164,7 @@ var Table = (function (_React$Component) {
             titles.map(function (title) {
               return _react2['default'].createElement(
                 'th',
-                null,
+                { key: header_key++ },
                 title
               );
             })
@@ -30137,44 +30173,9 @@ var Table = (function (_React$Component) {
         _react2['default'].createElement(
           'tbody',
           null,
-          _react2['default'].createElement(
-            'tr',
-            null,
-            _react2['default'].createElement(
-              'td',
-              null,
-              'Jill'
-            ),
-            _react2['default'].createElement(
-              'td',
-              null,
-              'Smith'
-            ),
-            _react2['default'].createElement(
-              'td',
-              null,
-              '50'
-            )
-          ),
-          _react2['default'].createElement(
-            'tr',
-            null,
-            _react2['default'].createElement(
-              'td',
-              null,
-              'Eve'
-            ),
-            _react2['default'].createElement(
-              'td',
-              null,
-              'Jackson'
-            ),
-            _react2['default'].createElement(
-              'td',
-              null,
-              '94'
-            )
-          )
+          answers.map(function (answer) {
+            return _react2['default'].createElement(_answersJs2['default'], { answers: answer });
+          })
         )
       );
     }
@@ -30186,4 +30187,4 @@ var Table = (function (_React$Component) {
 exports['default'] = Table;
 module.exports = exports['default'];
 
-},{"./question-column.js":174,"jquery":1,"react":172}]},{},[173]);
+},{"./answers.js":174,"jquery":1,"react":172}]},{},[173]);

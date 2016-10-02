@@ -1,64 +1,21 @@
 {
-  "skippable":[2],
-  "all":[{"id":1,"type":"small-text-input","question":"What is your job position?"},
-          {"id":2,"type":"small-unique-options","question":"What is your age group?",
-            "options":[{"id":1,"description":"18-25","selected":false},
-              {"id":2,"description":"26-40","selected":false},
-              {"id":3,"description":"41 or more","selected":false}
-              ]},
-              {"id":3,"type":"small-multiple-options","question":"How do you mostly find candidates?",
-                "options":[{"id":1,"description":"LinkedIn","selected":false},
-                  {"id":2,"description":"GitHub","selected":false},
-                  {"id":3,"description":"Facebook","selected":false},
-                  {"id":4,"description":"Google Search","selected":false},
-                  {"id":5,"description":"Job Websites","selected":false},
-                  {"id":6,"description":"Posting Ads (digital or printed)","selected":false}
-                  ]},
-              {"id":4,"type":"small-unique-options","question":"Do you use your smartphone in the process?",
-                  "options":[{"id":1,"description":"Yes, a lot","selected":false},
-                      {"id":2,"description":"Yes, but not that much","selected":false},
-                      {"id":3,"description":"No","selected":false}
-                      ]},
-              {"id":5,"type":"small-multiple-options","question":"How do you contact your candidates for follow-up?",
-                  "options":[{"id":1,"description":"Phone","selected":false},
-                      {"id":2,"description":"Email","selected":false},
-                      {"id":3,"description":"VideoConference (Skype, Hangouts)","selected":false},
-                      {"id":4,"description":"Instant Messaging (Whatsapp,Telegram)","selected":false}
-                      ]},
-              {"id":6,"type":"small-multiple-options","question":"Please indicate the most important information you look for on a candidate:",
-                  "options":[{"id":1,"description":"Name","selected":false},
-                      {"id":2,"description":"Age","selected":false},
-                      {"id":3,"description":"Education","selected":false},
-                      {"id":4,"description":"Location","selected":false},
-                      {"id":5,"description":"Previous work experience","selected":false},
-                      {"id":6,"description":"Certifications","selected":false},
-                      {"id":7,"description":"Language proficiency","selected":false}
-                      ]},
-              {"id":7,"type":"small-unique-options","question":"How much do you value recommendations from other people in your selection process:",
-                  "options":[{"id":1,"description":"A lot, it is one of the main reasons I hire.","selected":false},
-                      {"id":2,"description":"It is quite important, but I do weight other factors in.","selected":false},
-                      {"id":3,"description":"Not so much,I highlight other factors","selected":false}
-                      ]},
-              {"id":8,"type":"small-unique-options","question":"How much do you value the level of education in your selection process.",
-                  "options":[{"id":1,"description":"A lot, it is one of the main reasons I hire.","selected":false},
-                      {"id":2,"description":"It is quite important, but I do weight other factors in.","selected":false},
-                      {"id":3,"description":"Not so much,I highlight other factors","selected":false}
-                      ]},
-              {"id":9,"type":"small-unique-options","question":"How would you rate your experience with this survey?",
-                  "options":[{"id":1,"description":"Great! It was quick and easy.","selected":false},
-                      {"id":2,"description":"It was a little long to answer, but good overall.","selected":false},
-                      {"id":3,"description":"It was quick but I did not like the experience.","selected":false},
-                      {"id":4,"description":"It was very time consuming.","selected":false},
-                      {"id":5,"description":"It did not work well.","selected":false}
-                      ]}
-
-        ],
-  "configs":{"welcome":"Hello recruiter! You are about to answer a very quick questionnaire.",
+  "skippable":[1],
+  "all":[{"id":1,"type":"small-text-input","question":"What is your name?"},
+          {"id":2,"type":"small-multiple-options","question":"What is your favorite food?",
+            "options":[{"id":1,"description":"Pizza","selected":false},
+              {"id":2,"description":"Hamburger","selected":false}]},
+              {"id":3,"type":"small-multiple-options","question":"Which sports do you like?",
+                "options":[{"id":1,"description":"Football","selected":false},
+                  {"id":2,"description":"Baseball","selected":false}]},
+                  {"id":4,"type":"small-unique-options","question":"Sex:",
+                    "options":[{"id":1,"description":"Male","selected":false},
+                      {"id":2,"description":"Female","selected":false}]}],
+  "configs":{"welcome":"Hi!😀 You are about to answer a quick questionnaire.",
              "tip":"Please answer as truthfully as possible, you may not go back to fix an answer but you may skip some.",
-             "closingmessage":"Thank you for your time.",
-             "closingtip":"If you need help or wish to report an issue; please contact me at rodrigo@plethora.com.mx",
+             "closingmessage":"Thank you so much!",
+             "closingtip":"You have completed the questionnaire, we will use your responses for something awesome.",
              "tooltip":"You must answer to continue.",
              "waitmessage":"Hold on, we are trying to send your responses."
            },
-  "posturl": "http://experiments.plethora.com.mx/"
+  "posturl": "http://your-url-goes-here"
 }
