@@ -78,6 +78,9 @@ First you need to understand the basic structure  of the project.
 
 - `app/scripts/app.js` Loads the configs from `config.js` and injects the `question.json` file to the Questionnaire Component.
 
+### What's new?
+v1.2
+- New iterface to see results.(Still under beta)
 
 
 #### License
