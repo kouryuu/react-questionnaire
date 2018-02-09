@@ -7,10 +7,15 @@ It uses simple Twitter Bootstrap-based styling and simple CSS animations.
 ## Embedding
 
 If you want to embed on your website download the compiled file and add the following code to your website.
-<center>
-[![Download](/download_btn.png)](http://experiments.plethora.com.mx/react-questionnaire.zip)&nbsp;&nbsp;&nbsp;
+
+    
+[![Download](/download_btn.png "cuak")](http://experiments.plethora.com.mx/react-questionnaire.zip)&nbsp;&nbsp;&nbsp;
+
+
 [![Try a demo!](/demo_btn.png)](http://experiments.plethora.com.mx/demo-react-questionnaire/#)
-</center>
+
+
+
 
 Then simply import the style and script files as shown (with the correct paths):
 ```html
